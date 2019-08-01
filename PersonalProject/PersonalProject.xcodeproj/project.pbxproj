@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189D79F222F369180019473C /* Character Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189D79F122F369180019473C /* Character Description.swift */; };
 		18E013EE22F2137600762728 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E013ED22F2137600762728 /* AppDelegate.swift */; };
 		18E013F322F2137600762728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E013F122F2137600762728 /* Main.storyboard */; };
 		18E013F622F2137600762728 /* PersonalProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 18E013F422F2137600762728 /* PersonalProject.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189D79F122F369180019473C /* Character Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character Description.swift"; sourceTree = "<group>"; };
 		18E013EA22F2137600762728 /* PersonalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E013ED22F2137600762728 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18E013F222F2137600762728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				18E013ED22F2137600762728 /* AppDelegate.swift */,
 				18E013F122F2137600762728 /* Main.storyboard */,
+				189D79F122F369180019473C /* Character Description.swift */,
 				18E0142422F31F6F00762728 /* NameDatabaseViewController.swift */,
 				18E0142222F31CF400762728 /* DataBasesTableViewCell.swift */,
 				18E0142022F31B9300762728 /* Your Data Bases.swift */,
@@ -271,6 +274,7 @@
 				18E0142522F31F6F00762728 /* NameDatabaseViewController.swift in Sources */,
 				18E0142322F31CF400762728 /* DataBasesTableViewCell.swift in Sources */,
 				18E013F622F2137600762728 /* PersonalProject.xcdatamodeld in Sources */,
+				189D79F222F369180019473C /* Character Description.swift in Sources */,
 				18E0141F22F22A8E00762728 /* TableViewController.swift in Sources */,
 				18E013EE22F2137600762728 /* AppDelegate.swift in Sources */,
 				18E0142122F31B9300762728 /* Your Data Bases.swift in Sources */,

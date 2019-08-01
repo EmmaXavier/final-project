@@ -10,17 +10,32 @@ import UIKit
 
 class NameDatabaseViewController: UIViewController {
     
-    var stories: [DataBase] = []
+    var character: [Name] = []
+    var notesCharacter: [Notes] = []
+    var characterStory: [Story] = []
 
-    @IBOutlet weak var dataBaseText: UITextField!
+    
+    @IBOutlet weak var characterName: UITextField!
+    
+    @IBOutlet weak var characterNotes: UITextField!
+    
+    @IBOutlet weak var characterFrom: UITextField!
+    
     
     @IBAction func SaveButtonTapped(_ sender: UIButton) {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let dataBaseToSave = DataBase(entity: DataBase.entity(), insertInto: context)
-            dataBaseToSave.caption = dataBaseText.text
+            let nameToSave = Name(entity: Name.entity(), insertInto: context)
+            nameToSave.caption = characterName.text
+            let notesToSave = Notes(entity: Notes.entity(), insertInto: context)
+            notesToSave.caption = characterNotes.text
+            let storyToSave = Story(entity: Story.entity(), insertInto: context)
+            storyToSave.caption = characterFrom.text
+
+            try? context.save()
         }
         
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        
+//        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
         
         navigationController?.popViewController(animated: true)
     }

@@ -13,7 +13,9 @@ var dataBaseBoom = NameDatabaseViewController()
 class Your_Data_Bases: UITableViewController {
 
     
-    var stories: [DataBase] = []
+    var character: [Name] = []
+    var characterNotes: [Notes] = []
+    var characterStory: [Story] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,29 +28,20 @@ class Your_Data_Bases: UITableViewController {
     }
     
     
-    @IBAction func SaveButtonTapped(_ sender: UIButton) {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let dataBaseToSave = DataBase(entity: DataBase.entity(), insertInto: context)
-            dataBaseToSave.caption = dataBaseBoom.dataBaseText.text
-    }
     
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-        
-    navigationController?.popViewController(animated: true)
-    }
     // MARK: - Table view data source
 
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return stories.count
+        return character.count
         
     }
 
     func getStories() {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            if let coreDataDataBase = try? context.fetch(DataBase.fetchRequest()) as? [DataBase] {
-                stories = coreDataDataBase
+            if let coreDataName = try? context.fetch(Name.fetchRequest()) as? [Name] {
+                character = coreDataName
                 tableView.reloadData()
             }
         }
@@ -62,7 +55,7 @@ class Your_Data_Bases: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let cellCaption = stories[indexPath.row]
+        let cellCaption = character[indexPath.row]
         cell.textLabel?.text = cellCaption.caption
         
 
