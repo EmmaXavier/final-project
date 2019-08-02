@@ -27,6 +27,9 @@ class Character_Description: UIViewController {
             InsertNotes.text = "\(realCharacter.notes!)"
             InsertStory.text = "\(realCharacter.story!)"
         }
+    }
+    
+    
         
 //
 //            if let cellCharacterData = realCharacter! {
@@ -61,4 +64,4 @@ class Character_Description: UIViewController {
     }
     */
 
-}
+
