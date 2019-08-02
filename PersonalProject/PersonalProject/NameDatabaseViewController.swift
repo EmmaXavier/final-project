@@ -10,9 +10,7 @@ import UIKit
 
 class NameDatabaseViewController: UIViewController {
     
-    var character: [Name] = []
-    var notesCharacter: [Notes] = []
-    var characterStory: [Story] = []
+    var character: [Characters] = []
 
     
     @IBOutlet weak var characterName: UITextField!
@@ -24,12 +22,10 @@ class NameDatabaseViewController: UIViewController {
     
     @IBAction func SaveButtonTapped(_ sender: UIButton) {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let nameToSave = Name(entity: Name.entity(), insertInto: context)
-            nameToSave.caption = characterName.text
-            let notesToSave = Notes(entity: Notes.entity(), insertInto: context)
-            notesToSave.caption = characterNotes.text
-            let storyToSave = Story(entity: Story.entity(), insertInto: context)
-            storyToSave.caption = characterFrom.text
+            let characterToSave = Characters(entity: Characters.entity(), insertInto: context)
+            characterToSave.name = characterName.text
+            characterToSave.notes = characterNotes.text
+            characterToSave.story = characterFrom.text
 
             try? context.save()
         }

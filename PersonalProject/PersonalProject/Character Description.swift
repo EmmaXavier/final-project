@@ -10,9 +10,6 @@ import UIKit
 
 class Character_Description: UIViewController {
     
-    var character: [Name] = []
-    var notes: [Notes] = []
-    var story: [Story] = []
     
     
     
@@ -21,14 +18,12 @@ class Character_Description: UIViewController {
     @IBOutlet weak var InsertStory: UILabel!
     
     override func viewDidLoad() {
-//        let characterNameSlot = character
-//        InsertName.text = characterNameSlot
-//        
-//        let characterNotesSlot = notes
-//        InsertNotes.text = characterNotesSlot
-//        
-//        let characterStorySlot = story
-//        InsertStory.text = characterStorySlot
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            let characterSlot = Characters(entity: Characters.entity(), insertInto: context)
+            characterSlot.name = InsertName.text
+            characterSlot.notes = InsertNotes.text
+            characterSlot.story = InsertStory.text
+        }
     }
         
 

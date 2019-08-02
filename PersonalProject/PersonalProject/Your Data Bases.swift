@@ -13,10 +13,8 @@ var dataBaseBoom = NameDatabaseViewController()
 class Your_Data_Bases: UITableViewController {
 
     
-    var character: [Name] = []
-    var characterNotes: [Notes] = []
-    var characterStory: [Story] = []
-    
+    var character: [Characters] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,31 +36,19 @@ class Your_Data_Bases: UITableViewController {
         
     }
 
-    func getStories() {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            if let coreDataName = try? context.fetch(Name.fetchRequest()) as? [Name] {
-                character = coreDataName
-                tableView.reloadData()
-            }
-        }
-    }
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        getStories()
-    }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let cellCaption = character[indexPath.row]
-        cell.textLabel?.text = cellCaption.caption
+        cell.textLabel?.text = cellCaption.name
         
 
         // Configure the cell...
 
         return cell
     }
+    
+    
 
 
     /*
