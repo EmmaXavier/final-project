@@ -36,6 +36,17 @@ class Your_Data_Bases: UITableViewController {
         
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "moveToDetail"  {
+            if let characterBioView = segue.destination as? Character_Description {
+                if let characterInfoToSend = sender as? Characters {
+                    characterBioView.character = characterInfoToSend
+                }
+            }
+        }
+    }
+    
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
@@ -48,9 +59,26 @@ class Your_Data_Bases: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "moveToDetail", sender: character[indexPath.row])
+    }
     
-
-
+    func getStories() {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+    
+            if let coreDataCharacters = try? context.fetch(Characters.fetchRequest()) as? [Characters] {
+                character = coreDataCharacters
+        
+                tableView.reloadData()
+    }
+}
+    
+}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getStories()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

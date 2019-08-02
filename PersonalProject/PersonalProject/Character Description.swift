@@ -10,20 +10,40 @@ import UIKit
 
 class Character_Description: UIViewController {
     
+    var character : Characters? = nil
     
+
+    @IBOutlet weak var InsertName: UITextView!
+    @IBOutlet weak var InsertNotes: UITextView!
+    @IBOutlet weak var InsertStory: UITextView!
     
-    
-    @IBOutlet weak var InsertName: UILabel!
-    @IBOutlet weak var InsertNotes: UILabel!
-    @IBOutlet weak var InsertStory: UILabel!
     
     override func viewDidLoad() {
-        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
-            let characterSlot = Characters(entity: Characters.entity(), insertInto: context)
-            characterSlot.name = InsertName.text
-            characterSlot.notes = InsertNotes.text
-            characterSlot.story = InsertStory.text
+        
+        super.viewDidLoad()
+        
+        if  let realCharacter = character {
+            InsertName.text = "\(realCharacter.name!)"
+            InsertNotes.text = "\(realCharacter.notes!)"
+            InsertStory.text = "\(realCharacter.story!)"
         }
+        
+//
+//            if let cellCharacterData = realCharacter! {
+//
+//                if let cellCharacter = UILabel(data: realCharacter.name) {
+//                    InsertName.text = cellCharacter
+//                }
+//                if let cellNotes = UITextView(data: cellCharacterData.notes) {
+//                    InsertNotes.text = cellNotes
+//                }
+//                if let cellStory = UILabel(data: cellCharacterData.story) {
+//                    InsertStory.text = cellStory
+//                }
+//            }
+//        }
+//
+
     }
         
 
