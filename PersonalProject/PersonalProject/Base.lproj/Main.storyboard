@@ -111,6 +111,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Back"/>
                                             </button>
+                                            <connections>
+                                                <segue destination="FJq-Sv-siI" kind="show" id="mnm-9S-n9W"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -284,4 +287,7 @@
             <point key="canvasLocation" x="245.59999999999999" y="-248.72563718140933"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mnm-9S-n9W"/>
+    </inferredMetricsTieBreakers>
 </document>
